@@ -8,7 +8,7 @@
 # - OPENRND_REPO_NAME - repository name in Open-RnD's gerrit
 
 
-OPENRND_GIT = "git://open-rnd.net:29418"
+OPENRND_GIT = "git://git.open-rnd.net:29418"
 SRC_URI = "${OPENRND_GIT}/${OPENRND_REPO_NAME};protocol=ssh"
 
 # we're fetching all packages from git, set default source dir
