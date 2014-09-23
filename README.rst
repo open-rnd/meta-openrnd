@@ -8,11 +8,8 @@ deps.
 Dependencies
 ============
 
-The layer may possible depend on:
+The layer may possibly depend on:
 - meta-openembedded
-- meta-fsl-arm, meta-fsl-arm-extra (iMX6 support)
-- meta-ti (OMAP 35xx - BeagleBone, BeagleBoard)
-- meta-raspberrypi (Raspberry Pi support)
 
 Extras
 ==========
