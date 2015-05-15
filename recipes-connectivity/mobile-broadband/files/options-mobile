@@ -1,0 +1,17 @@
+mobile-broadband  # Use this device
+921600          # at high speed
+lock            # create lockfile
+crtscts         # use hardware (CTS/RTS) flow control with the modem
+modem           # use modem control lines
+passive         # don't exit if no LCD reply is received
+novj            # no TCP header compression
+defaultroute    # use this connection as default route
+replacedefaultroute
+#noipdefault     # use IPCP to get IP, don't try to guess one
+usepeerdns      # Use supplied DNS servers
+noauth
+hide-password   # don't log passwords (if used)
+persist         # reopen connection if closed
+holdoff 10      # but wait 10 seconds between reconnects
+maxfail 0       # and keep trying forever
+debug           # tell me what's going on
