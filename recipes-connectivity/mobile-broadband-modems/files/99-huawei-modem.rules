@@ -1,0 +1,3 @@
+# link the first tty inteface for this modem to /dev/mobile-broadband
+ACTION=="add", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1506", ENV{ID_USB_INTERFACE_NUM}=="00", SUBSYSTEM=="tty", SYMLINK+="mobile-broadband", ENV{SYSTEMD_WANTS}="ppp@mobile"
+
