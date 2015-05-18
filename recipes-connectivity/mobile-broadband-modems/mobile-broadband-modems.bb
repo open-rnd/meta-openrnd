@@ -9,6 +9,7 @@ PV = "0.1"
 PR = "r1"
 
 RDEPENDS_${PN} = "systemd udev mobile-broadband"
+DEPENDS = "udev"
 
 S = "${WORKDIR}/"
 
