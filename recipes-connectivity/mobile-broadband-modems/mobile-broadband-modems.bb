@@ -8,7 +8,12 @@ SRC_URI = " \
 PV = "0.1"
 PR = "r1"
 
-RDEPENDS_${PN} = "systemd udev mobile-broadband"
+RDEPENDS_${PN} = "\
+                systemd \
+                udev \
+                mobile-broadband \
+                usb-modeswitch \
+                "
 DEPENDS = "udev"
 
 S = "${WORKDIR}/"
