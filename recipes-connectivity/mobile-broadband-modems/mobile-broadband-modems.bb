@@ -1,12 +1,13 @@
 SUMMARY = "Support files for using USB dongle modems with mobile-broadband"
 SECTION = "base"
-LICENSE = "GPLv2+"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 SRC_URI = " \
         file://99-huawei-modem.rules \
 "
 
 PV = "0.1"
-PR = "r1"
+PR = "r2"
 
 RDEPENDS_${PN} = "\
                 systemd \
