@@ -1,0 +1,24 @@
+#!/bin/sh
+PPPCONF=/var/run/ppp/resolv.conf
+RESOLVED_DIR=/etc/systemd/resolved.conf.d/
+IFACE_FILE=${RESOLVED_DIR}/${PPP_IFACE}-resolved.conf
+
+if [ -z "${PPP_IFACE}" ]; then
+    exit 1
+fi
+
+if [ -f $PPPCONF ] ; then
+    echo "Adding systemd-resolved file $IFACE_FILE"
+
+    mkdir -p $RESOLVED_DIR
+    rm -f $IFACE_FILE
+    echo '[Resolve]' > $IFACE_FILE
+
+    for nameserver in $(awk '/^nameserver/ { print $2 }' $PPPCONF); do
+        echo "    adding DNS $nameserver"
+        echo "DNS=$nameserver" >> $IFACE_FILE
+    done
+
+    echo "Restarting systemd-resolved"
+    systemctl restart systemd-resolved
+fi

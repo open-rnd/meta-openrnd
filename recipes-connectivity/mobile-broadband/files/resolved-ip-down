@@ -1,0 +1,13 @@
+#!/bin/sh
+PPPCONF=/var/run/ppp/resolv.conf
+RESOLVED_DIR=/etc/systemd/resolved.conf.d/
+IFACE_FILE=${RESOLVED_DIR}/${PPP_IFACE}-resolved.conf
+
+if [ -f $IFACE_FILE ] ; then
+    echo "Removing interface file $IFACE_FILE"
+    rm -f $IFACE_FILE
+
+    echo "Restarting systemd-resolved"
+    systemctl restart systemd-resolved
+fi
+

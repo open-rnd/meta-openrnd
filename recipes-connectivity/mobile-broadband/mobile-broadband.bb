@@ -9,10 +9,12 @@ SRC_URI = " \
         file://mobile-noauth \
         file://options-mobile \
         file://10-ppp.network \
+        file://resolved-ip-up \
+        file://resolved-ip-down \
 "
 
 PV = "0.1"
-PR = "r3"
+PR = "r4"
 
 RDEPENDS_${PN} = "\
                ppp \
@@ -46,6 +48,12 @@ do_install () {
     # interfaces
     install -d ${D}${sysconfdir}/systemd/network
     install -m 0644 -t ${D}${sysconfdir}/systemd/network ${S}/10-ppp.network
+
+    # install systemd ppp-ifup/ifdown hook scripts
+    install -d ${D}${sysconfdir}/ppp/ip-down.d
+    install -d ${D}${sysconfdir}/ppp/ip-up.d
+    install -m 0755 -t ${D}${sysconfdir}/ppp/ip-up.d ${S}/resolved-ip-up
+    install -m 0755 -t ${D}${sysconfdir}/ppp/ip-down.d ${S}/resolved-ip-down
 }
 
 do_configure[noexec] = "1"
