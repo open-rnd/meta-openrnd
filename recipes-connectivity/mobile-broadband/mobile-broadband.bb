@@ -1,6 +1,7 @@
 SUMMARY = "Configuration for mobile broadband services"
 SECTION = "base"
-LICENSE = "GPLv2+"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384361b4de20420"
 SRC_URI = " \
         file://apn-generic \
         file://mobile-modem.chat \
@@ -11,7 +12,7 @@ SRC_URI = " \
 "
 
 PV = "0.1"
-PR = "r2"
+PR = "r3"
 
 RDEPENDS_${PN} = "\
                ppp \
