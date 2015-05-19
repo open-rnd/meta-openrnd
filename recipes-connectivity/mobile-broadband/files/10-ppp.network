@@ -1,0 +1,5 @@
+[Match]
+Name=ppp*
+
+[Network]
+DHCP=no

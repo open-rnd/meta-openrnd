@@ -7,12 +7,16 @@ SRC_URI = " \
         file://mobile-auth \
         file://mobile-noauth \
         file://options-mobile \
+        file://10-ppp.network \
 "
 
 PV = "0.1"
-PR = "r1"
+PR = "r2"
 
-RDEPENDS_${PN} = "ppp"
+RDEPENDS_${PN} = "\
+               ppp \
+               systemd (>= 211) \
+               "
 
 S = "${WORKDIR}/"
 
@@ -36,6 +40,11 @@ do_install () {
     ln -s mobile-noauth ${peers}/mobile
     ln -s mobile ${peers}/provider
     ln -s apn-generic ${chatscripts}/apn
+
+    # install systemd file for ppp so that networkd knows about these
+    # interfaces
+    install -d ${D}${sysconfdir}/systemd/network
+    install -m 0644 -t ${D}${sysconfdir}/systemd/network ${S}/10-ppp.network
 }
 
 do_configure[noexec] = "1"
