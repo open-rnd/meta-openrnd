@@ -7,6 +7,8 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.MIT;md5=3da9cfbcb788c80a0384
 
 SRC_URI = "file://10-default.network"
 
+S = "${WORKDIR}/"
+
 do_install() {
              install -d ${D}${sysconfdir}/systemd/network
              install -m 0644 -t ${D}${sysconfdir}/systemd/network ${WORKDIR}/10-default.network
