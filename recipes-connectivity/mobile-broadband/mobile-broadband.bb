@@ -41,7 +41,6 @@ do_install () {
 
     # setup default links
     ln -s mobile-noauth ${peers}/mobile
-    ln -s mobile ${peers}/provider
     ln -s apn-generic ${chatscripts}/apn
 
     # install systemd file for ppp so that networkd knows about these
