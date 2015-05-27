@@ -7,10 +7,11 @@ CONFFILES_${PN}_append = " ${sysconfdir}/systemd/system.conf.d/10-watchdog.conf"
 
 do_install_append() {
 
-    mkdir -p ${D}${sysconfdir}/systemd/system.conf.d
+    install -d ${D}${sysconfdir}/systemd/system.conf.d
 
     # install watchdog configuration
-    cp ${WORKDIR}/watchdog.conf ${D}${sysconfdir}/systemd/system.conf.d/10-watchdog.conf
+    install -m 644 ${WORKDIR}/watchdog.conf \
+                   ${D}${sysconfdir}/systemd/system.conf.d/10-watchdog.conf
 
     install -d ${D}${sysconfdir}/sysctl.d
     install -m 644 ${WORKDIR}/sysctl-panic-on-oops.conf \
