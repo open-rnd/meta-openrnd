@@ -27,3 +27,6 @@ do_install() {
 PACKAGES = "${PN}"
 
 RDEPENDS_${PN} = "systemd (>= 211)"
+
+do_configure[noexec] = "1"
+do_compile[noexec] = "1'"
