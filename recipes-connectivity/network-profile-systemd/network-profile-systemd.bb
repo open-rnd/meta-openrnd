@@ -1,5 +1,7 @@
 DESCRIPTION = "Default systemd-networkd profiles that enable DHCP on interfaces"
 
+inherit allarch
+
 PR = "r3"
 
 LICENSE = "MIT"
